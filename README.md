@@ -2,6 +2,7 @@
 ## Заметки по администрированию, для себя.
 1. [nginx](#nginx)
 1. [squid](#squid)
+1. [postgresql](#postgresql)
 
 ## nginx
 
@@ -24,4 +25,13 @@ logformat squid %tl %6tr %>a:%>p %<a:%<p %>st %<st %rm %ru %rv
 acl net src EXT_NET1/CIDR_PREFIX
 acl sites dstdom_regex *
 http_access allow net sites
+```
+## postgresql
+
+### Прибить конкретный запрос:
+```sh
+Найти pid:
+   select * from pg_stat_activity;
+Убить запрос:
+   select pg_terminate_backend(PID);
 ```
