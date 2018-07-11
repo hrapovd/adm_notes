@@ -42,7 +42,7 @@ http_access allow net sites
 ### Запустить ssh в фоне из Python и получить pid, а после убить
 ```sh
 import subprocess
-process = subprocess.Popen(['/usr/bin/ssh', '-N', '-R 127.0.0.1:3131:127.0.0.1:3131', 'omsk'])
+process = subprocess.Popen(['/usr/bin/ssh', '-N', '-R 127.0.0.1:3131:127.0.0.1:3131', 'node'])
 process.pid
 process.kill()
 del process
