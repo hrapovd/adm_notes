@@ -3,6 +3,7 @@
 1. [nginx](#nginx)
 1. [squid](#squid)
 1. [postgresql](#postgresql)
+1. [python](#python)
 
 ## nginx
 
@@ -34,4 +35,15 @@ http_access allow net sites
    select * from pg_stat_activity;
 Убить запрос:
    select pg_terminate_backend(PID);
+```
+
+## python
+
+### Запустить ssh в фоне из Python и получить pid, а после убить
+```sh
+import subprocess
+process = subprocess.Popen(['/usr/bin/ssh', '-N', '-R 127.0.0.1:3131:127.0.0.1:3131', 'omsk'])
+process.pid
+process.kill()
+del process
 ```
