@@ -35,6 +35,10 @@ http_access allow net sites
    select * from pg_stat_activity;
 Убить запрос:
    select pg_terminate_backend(PID);
+
+   select pg_terminate_backend(pid)
+     from pg_stat_activity
+	  where datname = 'blog';
 ```
 
 ## python
