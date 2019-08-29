@@ -29,6 +29,8 @@ acl net src EXT_NET1/CIDR_PREFIX
 acl sites dstdom_regex .*
 http_access allow net sites
 ```
+[squid.conf](./squid.conf)
+
 ## postgresql
 
 ### Прибить конкретный запрос:
@@ -64,7 +66,8 @@ python -m http.server 8000
 в каталоге есть index.html, то будет отдаваться он как страница по умолчанию.
 
 ### Парсинг даты из названий файлов/каталогов различных видов с определение расстояния
-### от текущей даты в [parse-date-filename.txt](./parse-date-filename.txt)
+### от текущей даты 
+[parse-date-filename.txt](./parse-date-filename.txt)
 
 ## dhcpd
 
