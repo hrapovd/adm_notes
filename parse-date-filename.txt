@@ -1,0 +1,40 @@
+for file in $(ls -1|grep -vP '^[a-z].*');do python << EOF|xargs realpath|xargs rm -vrf
+import datetime
+nameFile = list("$file".split('-'))
+dateFile = datetime.date(int(nameFile[0]),int(nameFile[1]),int(nameFile[2]))
+today = datetime.date.today()
+delta = today - dateFile
+if delta.days > 4:
+    print("$file")
+EOF
+  done
+
+#    Парсинг имен каталогов/файлов формата YYYYMMDD и определение разницы в 
+#  днях от сегодняшнего дня
+for dir in $(ls -1|grep -vP '^[a-z].*');do python << EOF|xargs r m -rf
+import datetime
+nameFile = str($dir).strip()
+dateFile = datetime.date(int(nameFile[:4]),int(nameFile[4:6]),int(nameFile[6:8]))
+today = datetime.date.today()
+delta = today - dateFile
+if delta.days > 90:
+    if not str($dir).isspace():
+        print("./${dir}")
+EOF
+   done
+
+#    Парсинг имен каталогов/файлов формата server.log.YYYY-MM-DD.something и определение разницы в 
+#  днях от сегодняшнего дня
+for dir in $(ls -1|grep -P '\.gz$');do python << EOF
+import datetime
+nameFile = list(str("$dir").split('.'))
+dateFile = list(nameFile[2].split('-'))
+datesFile = datetime.date(int(dateFile[0]),int(dateFile[1]),int(dateFile[2]))
+today = datetime.date.today()
+delta = today - datesFile
+if delta.days > 90:
+    if not str("$dir").isspace():
+        print("./${dir}")
+EOF
+   done
+
