@@ -64,7 +64,7 @@ python -m http.server 8000
 в каталоге есть index.html, то будет отдаваться он как страница по умолчанию.
 
 ### Парсинг даты из названий файлов/каталогов различных видов с определение расстояния
-### от текущей даты в parse-date-filename.txt
+### от текущей даты в [parse-date-filename.txt](./parse-date-filename.txt)
 
 ## dhcpd
 
