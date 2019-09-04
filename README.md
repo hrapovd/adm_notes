@@ -87,6 +87,12 @@ option rfc3442-classless-static-routes 24, 192,168,10, 10, 1, 1, 1;
 }
 ```
 
+## java
+### Сбор стеков и дампов с тайм-аутом
+```sh
+jmap -J-Dsun.tools.attach.attachTimeout=120000 -dump:format=b,file=<file> <pid>
+jstack -J-Dsun.tools.attach.attachTimeout=120000 -l <pid>
+```
 
 ## k8s
 
