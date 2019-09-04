@@ -5,6 +5,7 @@
 1. [postgresql](#postgresql)
 1. [python](#python)
 1. [dhcpd](#dhcpd)
+1. [java](#java)
 1. [k8s](#k8s)
 
 ## nginx
