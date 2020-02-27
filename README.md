@@ -7,6 +7,7 @@
 1. [dhcpd](#dhcpd)
 1. [java](#java)
 1. [k8s](#k8s)
+1. [mercurial](#hg)
 
 ## nginx
 
@@ -100,3 +101,34 @@ jstack -J-Dsun.tools.attach.attachTimeout=120000 -l <pid>
 ### Получение данных от k8s кластера с помощью curl
 curl --cacert ./ca.crt -H "Authorization: Bearer $TOKEN" "https://metrics-server/apis/metrics.k8s.io/v1beta1/pods/"
 TOKEN = содержит токен из сервис аккаунта, от которого идет подключение, найти можно в secrets
+
+## hg
+### Конфиг для подключения к серверу, обычно ~/.hgrc
+```sh
+# example repository config (see "hg help config" for more info)
+[paths]
+default = http://fqdn/some-url
+
+# path aliases to other clones of this repo in URLs or filesystem paths
+# (see "hg help config.paths" for more info)
+#
+# default-push = ssh://jdoe@example.net/hg/jdoes-fork
+# my-fork      = ssh://jdoe@example.net/hg/jdoes-fork
+# my-clone     = /home/jdoe/jdoes-clone
+[ui]
+username = Dmitry Hrapov <my-email@server>
+
+[auth]
+# name and email (local to this repository, optional), e.g.
+# username = Jane Doe <jdoe@example.com>
+hgserver_http.prefix=http://hg.server.ru
+hgserver_http.username=LOGIN
+hgserver_http.password=PASSWORD
+
+hgserver_https.prefix=https://hg.server.ru
+hgserver_https.username=LOGIN
+hgserver_https.password=PASSWORD
+
+[hostsecurity]
+hg.server.ru:verifycertsfile = /path/to/certificate
+```
