@@ -8,7 +8,7 @@
 1. [java](#java)
 1. [k8s](#k8s)
 1. [mercurial](#hg)
-1. [baxh](#bash)
+1. [bash](#bash)
 
 ## nginx
 
