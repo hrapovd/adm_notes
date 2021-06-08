@@ -8,6 +8,7 @@
 1. [java](#java)
 1. [k8s](#k8s)
 1. [mercurial](#hg)
+1. [baxh](#bash)
 
 ## nginx
 
@@ -131,4 +132,19 @@ hgserver_https.password=PASSWORD
 
 [hostsecurity]
 hg.server.ru:verifycertsfile = /path/to/certificate
+```
+## bash
+### Как узнать количество дней в месяце
+```
+days_in_month () {
+    if [ ! -z $1 ]; then
+        echo $1|grep -Pq '^\d{1,2}$'
+        if [ $? -eq 0 ]; then
+             cal $1 $(date +%Y)| awk 'NF {DAYS = $NF}; END {print DAYS}'
+        fi
+    else
+        echo "ERROR: function days_in_month got \"$1\""
+        exit 1
+    fi
+}
 ```
