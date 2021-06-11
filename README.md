@@ -141,10 +141,10 @@ days_in_month () {
         echo $1|grep -Pq '^\d{1,2}$'
         if [ $? -eq 0 ]; then
              cal $1 $(date +%Y)| awk 'NF {DAYS = $NF}; END {print DAYS}'
-        fi
-    else
-        echo "ERROR: function days_in_month got \"$1\""
-        exit 1
+        else
+             echo "ERROR: function days_in_month got \"$1\""
+             exit 1
+	fi
     fi
 }
 ```
